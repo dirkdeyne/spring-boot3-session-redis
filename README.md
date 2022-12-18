@@ -1,7 +1,7 @@
-# Session Management using Spring Session Redis in Spring Boot
+# Spring Boot 3: Session Management using Spring Session Redis
 
 ## Enable Redis Session management
-Just by adding `spring-boot-starter-data-redis` in you pom.xml
+All you need to do is adding `spring-boot-starter-data-redis` in you pom.xml
 ```XML
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -27,7 +27,7 @@ spring:
 
 #### Run Redis service in “detached” mode
 
-`docker run --name <some-redis> -d redis:alpine3.17` it's recommended naming your container
+`docker run --name redis-server -d redis:alpine3.17` it's recommended naming your container (here that is 'redis-server')
 
 #### Run the example
 - Start the application and goto the [hello-page](http://localhost:8080/hello)
@@ -45,5 +45,5 @@ spring:
   There should be some `spring:session...` keys listed
 
 #### Run Redis CLI via cmd
-- Create a <i>redis-</i>network: `docker network create redis-network`
-- `docker run -it --network redis-network --rm redis redis-cli -h redis` 
+- In cmd use `docker exec -it redis-server redis-cli` to start redis-cli in your container (here 'redis' is the container name).
+- The keys `spring:session...` will be listed with command `keys spring:session:*` (or `keys *` to see all generated keys)
