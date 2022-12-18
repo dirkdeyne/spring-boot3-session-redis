@@ -27,7 +27,7 @@ spring:
 
 #### Run Redis service in “detached” mode
 
-`docker run --name <some-redis> -d redis` it's recommended naming your container
+`docker run --name <some-redis> -d redis:alpine3.17` it's recommended naming your container
 
 #### Run the example
 - Start the application and goto the [hello-page](http://localhost:8080/hello)
@@ -39,7 +39,7 @@ spring:
 - Check `JSESSIONID` and/or `SESSION` cookies via your browser devtools (F12)
 - Check generated `keys *` via `redis cli`
 
-#### Redis CLI via terminal in Docker Desktop
+#### Redis CLI via terminal in [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - Open the Terminal-tab and type `redis-cli`
 - Use command `keys *` to inspect the generated keys.
   There should be some `spring:session...` keys listed
